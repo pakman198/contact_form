@@ -6,7 +6,7 @@ import cleanCSS from 'gulp-clean-css';
 import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
 
-gulp.task('init', (done) => {
+gulp.task('markup', (done) => {
     return gulp.src('./index.html')
         .pipe( gulp.dest('./dist/') );
 
@@ -18,12 +18,14 @@ gulp.task('sass', (done) => {
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss([autoprefixer()]))
-        .pipe(cleanCSS())
-        .pipe(sourcemaps.write())
+        // .pipe(cleanCSS())
+        // .pipe(sourcemaps.write())
         .pipe(gulp.dest('dist/css'))
 
     //done();
 });
+
+
 
 const server = browserSync.create();
 
@@ -35,6 +37,33 @@ gulp.task('serve', (done) => {
     // done();
 });
 
-gulp.task('default', gulp.series(
-    gulp.parallel('init', 'sass'), 
-    'serve'));
+const unlink = function(path, stats) {
+    console.log('File ' + path + ' was removed');
+    console.log('Watching for changes');
+    server.reload();
+}
+
+const change = function(path, stats) {
+    console.log('File ' + path + ' was changed');
+    console.log('Watching for changes');
+    server.reload();
+};
+
+
+// watcher
+gulp.task('watch', (done) => {
+    console.log('Watching for changes');
+
+    gulp.watch('src/scss/**/*.scss', gulp.parallel('sass'))
+    .on('change', change)
+    .on('unlink', unlink);
+
+    gulp.watch('index.html', gulp.parallel('markup'))
+    .on('change', change)
+    .on('unlink', unlink);
+
+});
+
+gulp.task('build', gulp.parallel('markup', 'sass'));
+
+gulp.task('default', gulp.series('build', gulp.parallel('watch', 'serve')));
