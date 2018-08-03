@@ -13,6 +13,13 @@ gulp.task('markup', (done) => {
     // done();
 });
 
+gulp.task('img', (done) => {
+    return gulp.src('./src/img/*.{png,gif,jpg}')
+        .pipe( gulp.dest('./dist/img/') );
+
+    // done();
+});
+
 gulp.task('sass', (done) => {
     return gulp.src('./src/scss/styles.scss')
         .pipe(sourcemaps.init())
@@ -24,6 +31,13 @@ gulp.task('sass', (done) => {
 
     //done();
 });
+
+gulp.task('webfonts', (done) => {
+    gulp.src('node_modules/@fortawesome/fontawesome-free/webfonts/*')
+        .pipe(gulp.dest('dist/webfonts'));
+
+    done();
+})
 
 
 
@@ -64,6 +78,6 @@ gulp.task('watch', (done) => {
 
 });
 
-gulp.task('build', gulp.parallel('markup', 'sass'));
+gulp.task('build', gulp.parallel('markup', 'img', 'sass', 'webfonts'));
 
 gulp.task('default', gulp.series('build', gulp.parallel('watch', 'serve')));

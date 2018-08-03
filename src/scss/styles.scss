@@ -1,6 +1,16 @@
 // load vendors
 @import 'vendors/bootstrap';
+@import 'vendors/fontawesome';
 
-body {
-    background-color: aqua;
+@import 'variables';
+@import 'elements/main';
+@import 'elements/type';
+@import 'elements/heading';
+@import 'elements/faq';
+@import 'elements/footer';
+
+* {
+    font-family: $opensans;
+    
 }
+

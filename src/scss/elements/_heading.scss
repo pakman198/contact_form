@@ -1,0 +1,32 @@
+.heading {
+    background: url('../../img/laptops_meeting.png') center center no-repeat; 
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    min-height: 300px;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 0;
+
+    .overlay {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        opacity: 0.5;
+        left: 0;
+        top: 0;
+    }
+
+    .content {
+        padding: 1.5rem;
+        background-color: rgba(0,0,0,.6);
+
+        .location {
+            margin-bottom: 0;
+            font-weight: 400;
+        }
+    }
+
+}

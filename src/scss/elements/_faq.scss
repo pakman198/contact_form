@@ -1,0 +1,43 @@
+.faq {
+    background: url('../../img/workspace.jpg') center center no-repeat; 
+    background-size: cover;
+    position: relative;
+    min-height: 300px;
+    margin-bottom: 0;
+
+    .overlay {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: $black;
+        opacity: 0.5;
+        left: 0;
+        top: 0;
+    }
+
+    .content {
+        padding: 2rem;
+        background-color: $lightGray;
+        position: relative;
+        z-index: 100;
+        color: $darkGray;
+        font-family: $opensans;
+        font-size: .9rem;
+
+        .title {
+            color: $black;
+        }
+
+        ul {
+            padding-left: 15px;
+            margin-bottom: 0; 
+        }
+    }
+
+    a {
+        color: $gray;
+        text-decoration: underline;
+    }
+
+}

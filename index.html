@@ -5,12 +5,211 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Netwerven</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Yanone+Kaffeesatz:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <div class="jumbotron">
-        <h1>Hello World !</h1>
-        <p class="lead">Que pasa ?</p>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Jobs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Departments</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="button"><i class="fas fa-briefcase"></i></button>
+            </form>
+        </div>
+    </nav>
+
+    <header class="jumbotron heading">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-2 col-md-8 content text-center">
+                    <h1 class="title">Purchasing Assistant</h1>
+                    <h3 class="location">Amsterdam, the netherlands</h3>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="container pb-5">
+            <div class="row mb-3">
+                <div class="col">
+                    <h2 class="my-4">apply for the position of purchasing assistant</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    Personal details*
+                    
+                    <form action="" class="mt-2">
+                        <div class="form-row">
+                            <div class="form-group col-sm-6">
+                                <input type="text" 
+                                    class="form-control" 
+                                    placeholder="First name" 
+                                    required>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <input type="text" 
+                                    class="form-control" 
+                                    placeholder="Last name" 
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-sm-4">
+                                <input type="date" 
+                                    class="form-control" 
+                                    placeholder="Birth date" 
+                                    required>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <input type="text" 
+                                    class="form-control" 
+                                    placeholder="Email" 
+                                    required>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                    <label class="form-check-label" for="inlineRadio1">Male</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                    <label class="form-check-label" for="inlineRadio2">Female</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-sm-4">
+                                <input type="text" 
+                                    class="form-control" 
+                                    placeholder="Address" 
+                                    required>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <input type="text" 
+                                    class="form-control" 
+                                    placeholder="House number" 
+                                    required>
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <input type="text" 
+                                    class="form-control" 
+                                    placeholder="Postal Code"
+                                    required>
+                                    <!-- zipcode format 1234RG -->
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <form action="">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <label for="">Your motivation*</label>
+                                <textarea class="form-control" name="" id="" rows="10"></textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="">Attach your documents <span class="small">(pdf, doc(x), rtf & txt)</span></label>
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        Resume*
+                                    </div>
+                                    <input type="file" class="form-control-file col-md-4">
+                                    <button class=" btn btn-primary col-md-4">Dropbox</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="offset-sm-6 col-sm-6">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="copy" id="copy">
+                                            <label class="form-check-label" for="copy">Send me a copy</label>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary col-sm-8">apply for this job</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq jumbotron">
+            <div class="overlay"></div>
+            <div class="container content">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="title">Application procedure</h3>
+                        <ul>
+                            <li>Repurpose user experience while remembering to re-target key demographics. </li>
+                            <li>Leading big data but think outside the box.</li>
+                            <li>Informing awareness while remembering to create a better customer experience.</li>
+                            <li>Leading transformation mapping and possibly use best practice.</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6">
+                        <h3 class="title">Got a question?</h3>
+                        <p class="font-weight-bold">Please contact recruitment</p>
+                        <p>
+                            T. +31 20 123 456 78<br/>
+                            Or <a href="#">send us an email</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-3">
+                <h4>Jobs at</h4>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <h4>Information</h4>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <h4>Follow us</h4>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <h4>Job alert</h4>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
