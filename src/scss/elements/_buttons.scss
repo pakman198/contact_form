@@ -1,0 +1,13 @@
+.btn {
+    border-radius: 0;
+    text-transform: uppercase;
+
+    i {
+        margin-right: 5px;
+    }
+}
+
+.btn-primary {
+    background-color: $primaryColor;
+    border-color: $primaryColor;
+}

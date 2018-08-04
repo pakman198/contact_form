@@ -1,0 +1,27 @@
+.form-control {
+    border-radius: 0;
+    color: $primaryColor;
+}
+input[type=file] {
+    display: none;
+
+
+    & + label{
+        background-color: $primaryColor;
+        display: inline-block;
+        color: $white;
+        width: 100%;
+        margin: 0;
+        text-align: center;
+        
+        @extend .btn;
+
+        &:hover {
+            background-color: $blue;
+        }
+    }
+}
+
+.dropbox i {
+    font-size: 1.3rem;
+}

@@ -3,14 +3,17 @@
 @import 'vendors/fontawesome';
 
 @import 'variables';
+@import 'elements/navbar';
 @import 'elements/main';
 @import 'elements/type';
 @import 'elements/heading';
 @import 'elements/faq';
 @import 'elements/footer';
+@import 'elements/buttons';
+@import 'elements/forms';
 
 * {
     font-family: $opensans;
-    
+
 }
 

@@ -5,6 +5,8 @@ import sourcemaps from 'gulp-sourcemaps';
 import cleanCSS from 'gulp-clean-css';
 import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
+import concat from 'gulp-concat';
+import rename from 'gulp-rename';
 
 gulp.task('markup', (done) => {
     return gulp.src('./index.html')
@@ -37,9 +39,19 @@ gulp.task('webfonts', (done) => {
         .pipe(gulp.dest('dist/webfonts'));
 
     done();
-})
+});
 
+gulp.task('scripts', (done) => {
+    gulp.src([
+        'node_modules/jquery/dist/jquery.js',
+        './src/js/navbar.js'
+    ])
+    .pipe(concat('bundle.js'))
+    // .pipe(rename('bundle.js'))
+    .pipe(gulp.dest('dist/js'));
 
+    done();
+});
 
 const server = browserSync.create();
 
@@ -72,12 +84,16 @@ gulp.task('watch', (done) => {
     .on('change', change)
     .on('unlink', unlink);
 
+    gulp.watch('src/js/*.js', gulp.parallel('scripts'))
+    .on('change', change)
+    .on('unlink', unlink);
+
     gulp.watch('index.html', gulp.parallel('markup'))
     .on('change', change)
     .on('unlink', unlink);
 
 });
 
-gulp.task('build', gulp.parallel('markup', 'img', 'sass', 'webfonts'));
+gulp.task('build', gulp.parallel('markup', 'img', 'sass', 'webfonts', 'scripts'));
 
 gulp.task('default', gulp.series('build', gulp.parallel('watch', 'serve')));

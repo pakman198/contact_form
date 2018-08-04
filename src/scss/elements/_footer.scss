@@ -1,6 +1,44 @@
 footer {
     margin-top: 2.5rem;
-    padding-top: 1rem;
+    padding: 1rem 0 3rem;
     border-top: 1px solid $gray;
+    
+    * {
+        font-family: $opensans;
+        font-weight: 300;
+        color: $gray;
+    }
 
+    .footer-section {
+        font-weight: 400;
+        color: $black;
+        margin-bottom: 1.5rem;
+    }
+
+    .social-media{
+        margin-bottom: 0;
+
+        li {
+            margin-bottom: 5px;
+        }
+    }
+
+    span {
+        display: inline-block;
+        border: 1px solid $darkGray;
+        border-radius: 50px;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        
+        i, .fa, .fas, .far, .fal, .fab {
+            position: relative;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            line-height: 1.8;
+            color: $darkGray;
+        }
+    }
 }
