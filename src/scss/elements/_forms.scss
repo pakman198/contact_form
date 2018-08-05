@@ -25,3 +25,17 @@ input[type=file] {
 .dropbox i {
     font-size: 1.3rem;
 }
+
+.error {
+    border: 1px solid $red;
+}
+
+.valid {
+    display: none;
+    color: $green;
+}
+
+.invalid, .error-msg {
+    display: none;
+    color: $red;
+}

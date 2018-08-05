@@ -44,7 +44,9 @@ gulp.task('webfonts', (done) => {
 gulp.task('scripts', (done) => {
     gulp.src([
         'node_modules/jquery/dist/jquery.js',
-        './src/js/navbar.js'
+        './src/js/vendor/jquery-ui/jquery-ui.js',
+        './src/js/navbar.js',
+        './src/js/form.js',
     ])
     .pipe(concat('bundle.js'))
     // .pipe(rename('bundle.js'))
