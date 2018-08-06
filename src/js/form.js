@@ -5,6 +5,7 @@
     NETWERVEN.applyForm = {
         init : function() {
             this.bindEvents();
+            this.dropboxUploader('resume');
 
             $("#birth").datepicker({
                 changeMonth: true,
@@ -18,8 +19,7 @@
             const formElements = $("#applyForm")[0].elements;
             
             $.each(formElements, (index, el) => {
-                // console.log({index, el});
-                if(el.name === 'resume' || el.name === 'birth') {
+                if($(el).attr('type') === 'file' || el.name === 'birth') {
                     $(el).on('change', () => {
                         this.validateField(el);    
                     })
@@ -34,18 +34,17 @@
             $('#applyForm').on('submit', function(e){
                 e.preventDefault();
 
-                var valid = $('#applyForm')[0].checkValidity();
+                // var valid = $('#applyForm')[0].checkValidity();
                 
-                
-                // TODO  --> validate the fileinput
-
+                NETWERVEN.applyForm.validateFileFields('resume') ? valid++ : valid--;
                 
                 console.log({ valid })
+
+                return false;
             });
         },
 
         validateField: function(field) {
-            // console.log({field})
             var err = 0;
 
             if(field.value === '' && $(field).attr('required')) {
@@ -68,10 +67,13 @@
                 }
             }
 
-            if(field.name === 'resume') {
+            if($(field).attr('type') === 'file') {
+                console.log('validate file')
                 const valid = this.checkFileType(field);
-                const $form = $("form[name='applyForm']");
-                
+                const filetype = $(field).data('filetype');
+                const $form = $("form[name='applyForm']").find(`.form-row.${filetype}`);
+                console.log({valid});
+
                 if(valid){
                     $form.find('.valid').show();
                     $form.find('.invalid, .error-msg').hide();
@@ -89,6 +91,29 @@
                 $(field).removeClass('error');
             }
         },
+
+        validateFileFields: function(filetype) {
+            var files = 0;
+            var $fields = $("form[name='applyForm']").find(`input[data-filetype="${filetype}"]`);
+            var $form = $("form[name='applyForm']").find(`.form-row.${filetype}`);
+
+            $.each($fields, function(index, field) {
+                console.log({field});
+                if( $(field).val() !== ''){
+                    files++;
+                }
+            });
+
+            if(files > 0){
+                $form.find('.valid').show();
+                $form.find('.invalid, .error-msg').hide();
+            }else{
+                $form.find('.invalid, .error-msg').show();
+                $form.find('.valid').hide();
+            }
+
+            return files;
+        },
         
         checkFileType: (input) => {
             const allowedExtensions = ['pdf', 'doc', 'docx', 'rtf', 'txt'];
@@ -102,6 +127,29 @@
             
             return true;
 
+        },
+
+        dropboxUploader: function(filetype) {
+            const $form = $(`form[name='applyForm'] [data-filetype='${filetype}'][type='hidden']`);
+            const options = {
+                success: (files) => {
+                    console.log({files});
+                    const file = files[0].link;
+                    $form.val(file);
+                    this.validateFileFields(filetype);
+                },
+                cancel: () => {
+                    this.validateFileFields(filetype);
+                },
+                linkType: "direct",
+                extensions: ['.pdf', '.doc', '.docx', '.rtf', '.txt'],
+                folderselect: false,
+            };
+
+            $('#dropboxCV').on('click', (e) => {
+                e.preventDefault();
+                Dropbox.choose(options);
+            })
         }
     }
 

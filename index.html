@@ -162,10 +162,11 @@
                                         <span class="valid"><i class="fas fa-check"></i></span>
                                     </div>
                                     <div class="form-group col-md-6 col-lg-4 mb-0">
-                                        <input type="file" name="resume" id="resume" class="form-control-file" form="applyForm">
+                                        <input type="file" name="resume" id="resume" class="form-control-file" data-filetype="resume" form="applyForm">
                                         <label for="resume"><i class="fas fa-desktop"></i> Upload</label>
                                     </div>
-                                    <button class="btn btn-primary col-md-6 col-lg-4 dropbox" type="button" form="applyForm"><i class="fab fa-dropbox"></i>Dropbox</button>
+                                    <button class="btn btn-primary col-md-6 col-lg-4 dropbox" type="button" id="dropboxCV" form="applyForm"><i class="fab fa-dropbox"></i>Dropbox</button>
+                                    <input type="hidden" name="dropboxCV" data-filetype="resume">
                                 </div>
                                 <div class="error-msg small">Please upload a valid file format</div>
                             </div>
@@ -266,5 +267,6 @@
 
 
     <script src="./js/bundle.js"></script>
+    <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="cponkylvzt7gyzv"></script>
 </body>
 </html>
