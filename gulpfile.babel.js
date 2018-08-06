@@ -28,7 +28,7 @@ gulp.task('sass', (done) => {
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss([autoprefixer()]))
         // .pipe(cleanCSS())
-        // .pipe(sourcemaps.write())
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('dist/css'))
 
     //done();

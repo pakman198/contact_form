@@ -2,3 +2,9 @@ main {
     background-color: $lightGray;
     padding: 2rem 0 0;
 }
+
+#applicationPage {
+    #thanks {
+        display: none;
+    }
+}

@@ -22,23 +22,27 @@
                 if($(el).attr('type') === 'file' || el.name === 'birth') {
                     $(el).on('change', () => {
                         this.validateField(el);    
-                    })
+                    });
                 } else{
-                    $(el).on('focusout', (e) => {
+                    $(el).on('focusout', () => {
                         this.validateField(el);
                     });
                 }
-
             });
 
-            $('#applyForm').on('submit', function(e){
+            $('#applyForm').on('submit', (e) =>{
                 e.preventDefault();
 
-                // var valid = $('#applyForm')[0].checkValidity();
+                var valid = $('#applyForm')[0].checkValidity();
+                valid = NETWERVEN.applyForm.validateFileFields('resume') ? valid : false;
                 
-                NETWERVEN.applyForm.validateFileFields('resume') ? valid++ : valid--;
-                
-                console.log({ valid })
+                if(valid) {
+                    $('#application').hide('slow', ()=> {
+                        setTimeout(() => {
+                            $('#thanks').fadeIn();
+                        }, 1500);
+                    });
+                }
 
                 return false;
             });
@@ -51,14 +55,6 @@
                 err++;
             }
 
-            // if(field.name === 'birth') {
-            //     const date = RegExp("([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))");
-                
-            //     if( !date.test(field.value) ) {
-            //         err++;
-            //     }
-            // }
-
             if(field.name === 'zipcode') {
                 const zipcode = RegExp("[0-9]{4}[a-zA-Z]{2}");
 
@@ -68,11 +64,9 @@
             }
 
             if($(field).attr('type') === 'file') {
-                console.log('validate file')
                 const valid = this.checkFileType(field);
                 const filetype = $(field).data('filetype');
                 const $form = $("form[name='applyForm']").find(`.form-row.${filetype}`);
-                console.log({valid});
 
                 if(valid){
                     $form.find('.valid').show();
@@ -84,7 +78,6 @@
                 }
             }
 
-            // console.log({err})
             if(err > 0){
                 $(field).addClass('error');
             }else{
@@ -98,7 +91,6 @@
             var $form = $("form[name='applyForm']").find(`.form-row.${filetype}`);
 
             $.each($fields, function(index, field) {
-                console.log({field});
                 if( $(field).val() !== ''){
                     files++;
                 }

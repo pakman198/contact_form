@@ -13,18 +13,22 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">LOGO</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars fa-lg"></i>
+            </button>
+            <a class="navbar-brand" href="#">LOGO</a>
+
+        </div>
+        <a href="#" class="my-2 my-sm-0 d-inline-block d-lg-none job-notification"><i class="fas fa-briefcase fa-lg"></i></a>
         <form class="form-inline my-2 my-lg-0 px-0 col-lg-5 order-2 justify-content-between">
             <input class="form-control mr-lg-2 col col-lg-9" type="search" placeholder="SEARCH FOR JOBS BY KEYWORD" aria-label="Search">
-            <a href="#" class="my-2 my-sm-0 d-none d-lg-inline-block"><i class="fas fa-briefcase"></i></a>
+            <a href="#" class="my-2 my-sm-0 d-none d-lg-inline-block job-notification"><i class="fas fa-briefcase"></i></a>
         </form>
         <div class="collapse navbar-collapse order-1" id="navbarSupportedContent">
-            <button type="button" class="close d-inline-block d-lg-none" aria-label="Close">
+            <!-- <button type="button" class="close d-inline-block d-lg-none" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
-            </button>
+            </button> -->
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -57,159 +61,183 @@
         </div>
     </header>
 
-    <main>
-        <section class="container pb-5">
-            <div class="row mb-3">
-                <div class="col">
-                    <h2 class="my-4">apply for the position of purchasing assistant</h2>
+    <main id="applicationPage">
+        <section id="application">
+            <section class="container pb-5">
+
+                <div class="row mb-3">
+                    <div class="col">
+                        <h2 class="my-4">apply for the position of purchasing assistant</h2>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col">
-                    Personal details*
-                    
-                    <form id="applyForm" name="applyForm" action="" class="mt-2">
-                        <div class="form-row">
-                            <div class="form-group col-sm-4">
-                                <input type="text" 
-                                    class="form-control" 
-                                    placeholder="First name"
-                                    name="name"
-                                    id="name"
-                                    required>
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <input type="text" 
-                                    class="form-control" 
-                                    placeholder="Last name"
-                                    name="lastName"
-                                    required>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-sm-4">
-                                <input type="date" 
-                                    class="form-control" 
-                                    placeholder="Birth date"
-                                    name="birth"
-                                    id="birth"
-                                    required>
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <input type="email" 
-                                    class="form-control" 
-                                    placeholder="Email"
-                                    name="email"
-                                    required>
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="sex" value="male" checked>
-                                    <label class="form-check-label" for="sex">Male</label>
+                <div class="row">
+                    <div class="col">
+                        Personal details*
+                        
+                        <form id="applyForm" name="applyForm" action="" class="mt-2">
+                            <div class="form-row">
+                                <div class="form-group col-sm-4">
+                                    <input type="text" 
+                                        class="form-control" 
+                                        placeholder="First name"
+                                        name="name"
+                                        id="name"
+                                        required>
                                 </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="sex" value="female">
-                                    <label class="form-check-label" for="sex">Female</label>
+                                <div class="form-group col-sm-4">
+                                    <input type="text" 
+                                        class="form-control" 
+                                        placeholder="Last name"
+                                        name="lastName"
+                                        required>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="form-row">
-                            <div class="form-group col-sm-4">
-                                <input type="text" 
-                                    class="form-control" 
-                                    placeholder="Address" 
-                                    name="address"
-                                    required>
+                            <div class="form-row">
+                                <div class="form-group col-sm-4">
+                                    <input type="date" 
+                                        class="form-control" 
+                                        placeholder="Birth date"
+                                        name="birth"
+                                        id="birth"
+                                        required>
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <input type="email" 
+                                        class="form-control" 
+                                        placeholder="Email"
+                                        name="email"
+                                        required>
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="sex" value="male" checked>
+                                        <label class="form-check-label" for="sex">Male</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="sex" value="female">
+                                        <label class="form-check-label" for="sex">Female</label>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="form-group col-sm-4">
-                                <input type="text" 
-                                    class="form-control" 
-                                    placeholder="House number"
-                                    name="number"
-                                    required>
+
+                            <div class="form-row">
+                                <div class="form-group col-sm-4">
+                                    <input type="text" 
+                                        class="form-control" 
+                                        placeholder="Address" 
+                                        name="address"
+                                        required>
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <input type="text" 
+                                        class="form-control" 
+                                        placeholder="House number"
+                                        name="number"
+                                        required>
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <input type="text" 
+                                        class="form-control" 
+                                        placeholder="Postal Code"
+                                        name="zipcode"
+                                        pattern="[0-9]{4}[a-zA-Z]{2}"
+                                        required>
+                                        <!-- zipcode format 1234RG -->
+                                </div>
                             </div>
-                            <div class="form-group col-sm-4">
-                                <input type="text" 
-                                    class="form-control" 
-                                    placeholder="Postal Code"
-                                    name="zipcode"
-                                    pattern="[0-9]{4}[a-zA-Z]{2}"
-                                    required>
-                                    <!-- zipcode format 1234RG -->
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col">
-                    <form action="" name="applyForm">
-                        <div class="form-row">
-                            <div class="col-md-6">
-                                <label for="">Your motivation*</label>
-                                <textarea class="form-control" name="" id="" rows="10" form="applyForm"></textarea>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="">Attach your documents <span class="small">(pdf, doc(x), rtf & txt)</span></label>
-                                <div class="form-row resume">
-                                    <div class="col-md-12 col-lg-4 d-flex justify-content-between align-items-center">
-                                        <span>Resume*</span> 
-                                        <span class="invalid"><i class="fas fa-times"></i></span>
-                                        <span class="valid"><i class="fas fa-check"></i></span>
-                                    </div>
-                                    <div class="form-group col-md-6 col-lg-4 mb-0">
-                                        <input type="file" name="resume" id="resume" class="form-control-file" data-filetype="resume" form="applyForm">
-                                        <label for="resume"><i class="fas fa-desktop"></i> Upload</label>
-                                    </div>
-                                    <button class="btn btn-primary col-md-6 col-lg-4 dropbox" type="button" id="dropboxCV" form="applyForm"><i class="fab fa-dropbox"></i>Dropbox</button>
-                                    <input type="hidden" name="dropboxCV" data-filetype="resume">
+                <div class="row">
+                    <div class="col">
+                        <form action="" name="applyForm">
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <label for="">Your motivation letter*</label>
+                                    <textarea class="form-control" name="motivation" rows="10" form="applyForm" required></textarea>
                                 </div>
-                                <div class="error-msg small">Please upload a valid file format</div>
+                                <div class="col-md-6">
+                                    <label for="">Attach your documents <span class="small">(pdf, doc(x), rtf & txt)</span></label>
+                                    <div class="form-row resume">
+                                        <div class="col-md-12 col-lg-4 d-flex justify-content-between align-items-center">
+                                            <span>Resume*</span> 
+                                            <span class="invalid"><i class="fas fa-times"></i></span>
+                                            <span class="valid"><i class="fas fa-check"></i></span>
+                                        </div>
+                                        <div class="form-group col-md-6 col-lg-4 mb-3 mb-lg-0">
+                                            <input type="file" name="resume" id="resume" class="form-control-file" data-filetype="resume" form="applyForm">
+                                            <label for="resume"><i class="fas fa-desktop"></i> Upload</label>
+                                        </div>
+                                        <div class="form-group col-md-6 col-lg-4">
+                                            <button class="btn btn-primary col dropbox" type="button" id="dropboxCV" form="applyForm"><i class="fab fa-dropbox"></i>Dropbox</button>
+                                        </div>
+                                        <input type="hidden" name="dropboxCV" data-filetype="resume">
+                                    </div>
+                                    <div class="error-msg small">Please upload a valid file format</div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-row">
-                            <div class="offset-sm-6 col-sm-6">
-                                <div class="row">
-                                    <div class="col-md-6 col-lg-4">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="copy" id="copy" form="applyForm">
-                                            <label class="form-check-label" for="copy">Send me a copy</label>
+                            <div class="form-row">
+                                <div class="offset-md-6 col-md-6">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-12 col-lg-4 mb-3 mb-lg-0">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="copy" id="copy" form="applyForm">
+                                                <label class="form-check-label" for="copy">Send me a copy</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-12 col-lg-8">
+                                            <button class="btn btn-primary col" type="submit" id="submit" form="applyForm">apply for this job</button>
                                         </div>
                                     </div>
-                                    <button class="btn btn-primary col-md-6 col-lg-8" type="submit" id="submit" form="applyForm">apply for this job</button>
                                 </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
-            </div>
+            </section>
+
+            <section class="faq jumbotron">
+                <div class="overlay"></div>
+                <div class="container content">
+                    <div class="row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <h3 class="title">Application procedure</h3>
+                            <ul>
+                                <li>Repurpose user experience while remembering to re-target key demographics. </li>
+                                <li>Leading big data but think outside the box.</li>
+                                <li>Informing awareness while remembering to create a better customer experience.</li>
+                                <li>Leading transformation mapping and possibly use best practice.</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6">
+                            <h3 class="title">Got a question?</h3>
+                            <p class="font-weight-bold">Please contact recruitment</p>
+                            <p>
+                                T. +31 20 123 456 78<br/>
+                                Or <a href="#">send us an email</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </section>
 
-        <section class="faq jumbotron">
-            <div class="overlay"></div>
-            <div class="container content">
+        <section id="thanks">
+            <div class="container">
                 <div class="row">
-                    <div class="col-sm-6">
-                        <h3 class="title">Application procedure</h3>
-                        <ul>
-                            <li>Repurpose user experience while remembering to re-target key demographics. </li>
-                            <li>Leading big data but think outside the box.</li>
-                            <li>Informing awareness while remembering to create a better customer experience.</li>
-                            <li>Leading transformation mapping and possibly use best practice.</li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6">
-                        <h3 class="title">Got a question?</h3>
-                        <p class="font-weight-bold">Please contact recruitment</p>
-                        <p>
-                            T. +31 20 123 456 78<br/>
-                            Or <a href="#">send us an email</a>
-                        </p>
+                    <div class="col">
+                            <div class="alert alert-success mt-4 mb-5" role="alert">
+                                <h4 class="alert-heading">Thank you!</h4>
+                                <hr>
+                                <p>
+                                    Your application was sent successfully. <br>
+                                    Someone on our team will review your information and get back to you shortly.
+                                </p>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -239,7 +267,7 @@
             <div class="col-sm-6 col-md-3">
                 <h4 class="footer-section">Follow us</h4>
                 <div class="row">
-                    <div class="col-lg-6 mb-0">
+                    <div class="col-xl-6 mb-0">
                         <ul class="list-unstyled social-media">
                             <li><span><i class="far fa-envelope"></i></span> Newsletter</li>
                             <li><span><i class="fab fa-instagram"></i></span> Instagram</li>
@@ -248,7 +276,7 @@
                             <li><span><i class="fab fa-linkedin-in"></i></span> LinkedIn</li>
                         </ul>
                     </div>
-                    <div class="col-lg-6 mb-4">
+                    <div class="col-xl-6 mb-4">
                         <ul class="list-unstyled social-media">
                             <li><span><i class="fab fa-facebook-f"></i></span> Facebook</li>
                             <li><span><i class="fab fa-pinterest-p"></i></span> Pinterest</li>
