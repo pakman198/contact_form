@@ -40,7 +40,7 @@
                     $('#application').hide('slow', ()=> {
                         setTimeout(() => {
                             $('#thanks').fadeIn();
-                        }, 1500);
+                        },100);
                     });
                 }
 

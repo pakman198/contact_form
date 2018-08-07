@@ -6,7 +6,9 @@ import cleanCSS from 'gulp-clean-css';
 import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
 import concat from 'gulp-concat';
-import rename from 'gulp-rename';
+import image from 'gulp-image';
+import uglify from 'gulp-uglify';
+import babel from 'gulp-babel';
 
 gulp.task('markup', (done) => {
     return gulp.src('./index.html')
@@ -16,22 +18,33 @@ gulp.task('markup', (done) => {
 });
 
 gulp.task('img', (done) => {
-    return gulp.src('./src/img/*.{png,gif,jpg}')
+    gulp.src('./src/img/*.{png,gif,jpg}')
+        .pipe(image({
+            pngquant: true,
+            optipng: 256,
+            zopflipng: --lossy_transparent,
+            jpegRecompress: true,
+            mozjpeg: true,
+            guetzli: false,
+            gifsicle: false,
+            svgo: true,
+            concurrent: 10
+        }))
         .pipe( gulp.dest('./dist/img/') );
 
-    // done();
+    done();
 });
 
 gulp.task('sass', (done) => {
-    return gulp.src('./src/scss/styles.scss')
+    gulp.src('./src/scss/styles.scss')
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss([autoprefixer()]))
-        // .pipe(cleanCSS())
+        .pipe(cleanCSS())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('dist/css'))
 
-    //done();
+    done();
 });
 
 gulp.task('webfonts', (done) => {
@@ -48,8 +61,11 @@ gulp.task('scripts', (done) => {
         './src/js/navbar.js',
         './src/js/form.js',
     ])
+    .pipe(sourcemaps.init())
+    .pipe(babel())
     .pipe(concat('bundle.js'))
-    // .pipe(rename('bundle.js'))
+    .pipe(uglify())
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist/js'));
 
     done();
@@ -96,6 +112,7 @@ gulp.task('watch', (done) => {
 
 });
 
-gulp.task('build', gulp.parallel('markup', 'img', 'sass', 'webfonts', 'scripts'));
+gulp.task('build_dev', gulp.parallel('markup', 'img', 'sass', 'webfonts', 'scripts'));
+gulp.task('build_prod', gulp.series('img', gulp.parallel('markup', 'sass', 'webfonts', 'scripts')));
 
-gulp.task('default', gulp.series('build', gulp.parallel('watch', 'serve')));
+gulp.task('default', gulp.series('build_dev', gulp.parallel('watch', 'serve')));

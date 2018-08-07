@@ -3,9 +3,11 @@
     color: $primaryColor;
 }
 input[type=file] {
-    display: none;
-
-
+    opacity: 0;
+    height: 0;
+    position: relative;
+    z-index: -1;
+    
     & + label{
         background-color: $primaryColor;
         display: inline-block;
@@ -19,6 +21,11 @@ input[type=file] {
         &:hover {
             background-color: $blue;
         }
+    }
+
+    &:focus + label{
+        outline: 0;
+        box-shadow: $btn-focus-box-shadow;
     }
 }
 
