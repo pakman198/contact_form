@@ -1,18 +1,23 @@
 {
-  "name": "apply-page",
+  "name": "contact_form",
   "version": "1.0.0",
   "description": "Code challenge for Endouble",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pakman198/contact_form.git"
+  },
   "scripts": {
     "start": "./node_modules/.bin/gulp",
     "build": "./node_modules/.bin/gulp publish"
   },
   "keywords": [
     "code",
-    "challenge"
+    "challenge",
+    "responsive web"
   ],
   "author": "Jose Francisco Herrera",
-  "license": "ISC",
+  "license": "UNLICENSED",
   "devDependencies": {
     "autoprefixer": "^9.0.2",
     "babel-preset-es2015": "^6.24.1",
