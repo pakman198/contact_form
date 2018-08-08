@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/styles.css">
     <!--[if IE 9]>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link rel="stylesheet" href="./css/ie.css">
     <![endif]-->
 </head>
 <body>
@@ -18,18 +19,17 @@
                 <i class="fas fa-bars fa-lg"></i>
             </button>
             <a class="navbar-brand" href="#">LOGO</a>
-
         </div>
         <button type="button" class="my-2 my-sm-0 d-inline-block d-lg-none job-notification" aria-label="Job notification">
             <i class="fas fa-briefcase fa-lg"></i>
         </button>
-        <form class="form-inline my-2 my-lg-0 px-0 col-lg-5 order-2 justify-content-between">
+        <form class="form-inline my-2 my-lg-0 px-0 col-lg-5 order-2 justify-content-between navbar-form pull-right">
             <input class="form-control mr-lg-2 col col-lg-9" type="search" placeholder="SEARCH FOR JOBS BY KEYWORD" aria-label="Search">
-            <button type="button" class="my-2 my-sm-0 d-none d-lg-inline-block job-notification" aria-label="Job notification">
+            <button type="button" class="my-2 my-sm-0 d-none d-lg-inline-block job-notification pull-right" aria-label="Job notification">
                 <i class="fas fa-briefcase"></i>
             </button>
         </form>
-        <div class="collapse navbar-collapse order-1" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse order-1 pull-left" id="navbarSupportedContent">
             <!-- <button type="button" class="close d-inline-block d-lg-none" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button> -->
@@ -82,14 +82,17 @@
                         <form id="applyForm" name="applyForm" action="" class="mt-2">
                             <div class="form-row">
                                 <div class="form-group col-sm-4">
+                                    <label for="name" class="d-none show">Name</label>
                                     <input type="text" 
                                         class="form-control" 
                                         placeholder="First name"
                                         name="name"
                                         aria-label="Name"
+                                        dataname="required"
                                         required>
                                 </div>
                                 <div class="form-group col-sm-4">
+                                    <label for="lastName" class="d-none show">Last Name</label>
                                     <input type="text" 
                                         class="form-control" 
                                         placeholder="Last name"
@@ -101,6 +104,7 @@
 
                             <div class="form-row">
                                 <div class="form-group col-sm-4">
+                                    <label for="birth" class="d-none show">Birth Date</label>
                                     <input type="date" 
                                         class="form-control" 
                                         placeholder="Birth date"
@@ -110,6 +114,7 @@
                                         required>
                                 </div>
                                 <div class="form-group col-sm-4">
+                                    <label for="email" class="d-none show">Email</label>
                                     <input type="email" 
                                         class="form-control" 
                                         placeholder="Email"
@@ -118,6 +123,7 @@
                                         required>
                                 </div>
                                 <div class="form-group col-sm-4" id="sex">
+                                    <label for="" class="d-none show">Sex</label>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="sex" value="male" aria-label="Male" role="radio" checked>
                                         <label class="form-check-label" for="sex">Male</label>
@@ -131,6 +137,7 @@
 
                             <div class="form-row">
                                 <div class="form-group col-sm-4">
+                                    <label for="address" class="d-none show">Address</label>
                                     <input type="text" 
                                         class="form-control" 
                                         placeholder="Address" 
@@ -139,6 +146,7 @@
                                         required>
                                 </div>
                                 <div class="form-group col-sm-4">
+                                    <label for="number" class="d-none show">House Number</label>
                                     <input type="text" 
                                         class="form-control" 
                                         placeholder="House number"
@@ -147,6 +155,7 @@
                                         required>
                                 </div>
                                 <div class="form-group col-sm-4">
+                                    <label for="zipcode" class="d-none show">Postal Code</label>
                                     <input type="text" 
                                         class="form-control" 
                                         placeholder="Postal Code"
@@ -195,8 +204,10 @@
                                     <div class="row">
                                         <div class="col-sm-6 col-md-12 col-lg-4 mb-3 mb-lg-0">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="copy" id="copy" form="applyForm">
-                                                <label class="form-check-label" for="copy">Send me a copy</label>
+                                                <label class="form-check-label" for="copy">
+                                                    <input class="form-check-input" type="checkbox" name="copy" id="copy" form="applyForm">
+                                                    Send me a copy
+                                                </label>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-12 col-lg-8">

@@ -4,7 +4,8 @@
   "description": "Code challenge for Endouble",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/.bin/gulp"
+    "start": "./node_modules/.bin/gulp",
+    "build": "./node_modules/.bin/gulp publish"
   },
   "keywords": [
     "code",
@@ -28,7 +29,8 @@
     "gulp-sass": "^4.0.1",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.1",
-    "popper.js": "^1.14.3"
+    "popper.js": "^1.14.3",
+    "require-dir": "^1.0.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.2.0",

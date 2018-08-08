@@ -51,7 +51,7 @@
         validateField: function(field) {
             var err = 0;
 
-            if(field.value === '' && $(field).attr('required')) {
+            if(field.value === '' && ( $(field).attr('required') || $(field).attr('required') === 'required'  )) {
                 err++;
             }
 
