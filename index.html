@@ -105,7 +105,7 @@
                             <div class="form-row">
                                 <div class="form-group col-sm-4">
                                     <label for="birth" class="d-none show">Birth Date</label>
-                                    <input type="date" 
+                                    <input type="text" 
                                         class="form-control" 
                                         placeholder="Birth date"
                                         name="birth"
@@ -178,6 +178,7 @@
                                     <label for="">Your motivation letter*</label>
                                     <textarea class="form-control" name="motivation" rows="10" form="applyForm" aria-label="Motivation letter" required></textarea>
                                 </div>
+
                                 <div class="col-md-6">
                                     <label for="">Attach your documents <span class="small">(pdf, doc(x), rtf & txt)</span></label>
                                     <div class="form-row resume">
@@ -190,12 +191,12 @@
                                             <input type="file" name="resume" id="resume" class="form-control-file" data-filetype="resume" form="applyForm">
                                             <label for="resume"><i class="fas fa-desktop"></i> Upload</label>
                                         </div>
-                                        <div class="form-group col-md-6 col-lg-4">
+                                        <div class="form-group col-md-6 col-lg-4 mb-md-0">
                                             <button class="btn btn-primary col dropbox" type="button" id="dropboxCV" form="applyForm" arie-label="Upload CV via Dropbox"><i class="fab fa-dropbox"></i>Dropbox</button>
                                         </div>
                                         <input type="hidden" name="dropboxCV" data-filetype="resume">
+                                        <div class="col-12 error-msg small">Please upload a valid file format</div>
                                     </div>
-                                    <div class="error-msg small">Please upload a valid file format</div>
                                 </div>
                             </div>
 
